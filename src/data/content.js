@@ -17,6 +17,7 @@ export const profile = {
 // Keep 4-6 projects. `screenshot` is a path under public/ (e.g. 'screenshots/ui-framework.png').
 // `badge` is an optional CI status badge image URL (e.g. a GitHub Actions workflow badge.svg);
 // `badgeLabel` is its alt text, or the text shown when no image is set.
+// `wip: true` shows the card as "Work in progress": only the title and approach tags are shown.
 export const projects = [
   {
     title: 'Selenium and REST Assured Framework',
@@ -24,8 +25,8 @@ export const projects = [
     outcome: '19 Gherkin scenarios (15 UI, 4 API) run on every push in GitHub Actions with headless Chrome, producing an Extent report with failure screenshots.',
     approach: ['UI', 'API', 'BDD', 'CI'],
     stack: ['Java', 'Selenium', 'Cucumber', 'REST Assured', 'ExtentReports', 'GitHub Actions'],
-    screenshot: null,
-    screenshotAlt: 'Test report screenshot',
+    screenshot: 'screenshots/selenium-cucumber-report.png',
+    screenshotAlt: 'Cucumber report from GitHub Actions: 100% (19 of 19) scenarios passed',
     badge: 'https://github.com/rjdgonzales0513/selenium/actions/workflows/tests.yml/badge.svg',
     badgeLabel: 'Tests workflow status',
     links: [
@@ -36,6 +37,7 @@ export const projects = [
       },
       { label: 'README', href: 'https://github.com/rjdgonzales0513/selenium/blob/main/README.md' },
     ],
+    wip: false,
   },
   {
     title: 'Playwright + pytest-bdd Framework',
@@ -43,8 +45,8 @@ export const projects = [
     outcome: 'CI runs lint and type checks first, then the API tests and the UI/BDD tests on Chromium and Firefox, uploading an HTML report and Playwright traces for failed tests.',
     approach: ['UI', 'API', 'BDD', 'CI'],
     stack: ['Python', 'Playwright', 'pytest-bdd', 'pydantic', 'GitHub Actions'],
-    screenshot: null,
-    screenshotAlt: 'Test report screenshot',
+    screenshot: 'screenshots/pw-bdd-html-report.png',
+    screenshotAlt: 'pytest-html report from GitHub Actions on Firefox: 38 tests passed, 0 failed',
     badge: 'https://github.com/rjdgonzales0513/pw-bdd-framework/actions/workflows/ci.yml/badge.svg',
     badgeLabel: 'CI workflow status',
     links: [
@@ -58,9 +60,33 @@ export const projects = [
         href: 'https://github.com/rjdgonzales0513/pw-bdd-framework/blob/main/README.md',
       },
     ],
+    wip: false,
   },
   {
-    title: '[CI/CD pipeline: code → tests → report]',
+    title: 'My Budget App: REST API server',
+    whatItIs: 'Spring Boot REST API for a household budgeting app that tracks accounts, budget categories and income/expense transactions, and produces monthly reports as JSON or a PDF statement.',
+    outcome: '13 documented endpoints backed by PostgreSQL with Flyway migrations. GitLab CI builds a Docker image on every push to main and rolls it out to a Kubernetes deployment.',
+    approach: ['API', 'CI/CD'],
+    stack: ['Java 21', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'Flyway', 'PDFBox', 'Docker', 'Kubernetes', 'GitLab CI'],
+    screenshot: null,
+    screenshotAlt: 'API screenshot',
+    badge: null,
+    badgeLabel: null,
+    links: [
+      { label: 'Code', href: 'https://github.com/rjdgonzales0513/mybudgetapp_server' },
+      {
+        label: 'API reference',
+        href: 'https://github.com/rjdgonzales0513/mybudgetapp_server/blob/main/docs/API.md',
+      },
+      {
+        label: 'README',
+        href: 'https://github.com/rjdgonzales0513/mybudgetapp_server/blob/main/README.md',
+      },
+    ],
+    wip: false,
+  },
+  {
+    title: 'CI/CD pipeline: code → tests → report',
     whatItIs: '[One line on the stages the pipeline runs on each push.]',
     outcome: '[A real, provable result, e.g. feedback time or release confidence.]',
     approach: ['CI', 'Regression'],
@@ -74,9 +100,10 @@ export const projects = [
       { label: 'Pipeline runs', href: 'https://github.com/' },
       { label: 'README', href: 'https://github.com/' },
     ],
+    wip: true,
   },
   {
-    title: '[Developer project or tool]',
+    title: 'Developer project or tool',
     whatItIs: '[One line on the app, library or tool you built.]',
     outcome: '[What it does for users, or what you learned.]',
     approach: ['Unit', 'Integration'],
@@ -90,6 +117,7 @@ export const projects = [
       { label: 'Live demo', href: 'https://github.com/' },
       { label: 'README', href: 'https://github.com/' },
     ],
+    wip: true,
   },
 ]
 
