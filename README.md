@@ -36,6 +36,25 @@ cd ../resume_backend
 
 If the API is not running, the site logs a warning and uses the bundled content. The `<html data-content-source>` attribute shows which source was used (`api` or `bundled`).
 
+## How it works
+
+```
+App.jsx ──► useContent() ──► api.js ──► GET {VITE_API_URL}/api/v1/content
+               │                              │
+               │      success ◄───────────────┤
+               │      failure / timeout ──► bundled content.js
+               ▼
+   Header · Hero · Projects · Skills · About · Footer  (content passed as props)
+```
+
+1. **Choosing a source:** `api.js` works out the API URL. It uses `VITE_API_URL` if set, `http://localhost:8000` in dev, and nothing in a production build without `VITE_API_URL`. With no URL, the API is skipped and the site uses `content.js` right away.
+2. **Fetching:** when an API URL exists, `useContent()` shows a loading screen and requests `/api/v1/content`. The request is cancelled after **5 seconds**. The response must have `profile`, `projects` and `skills`, or it's rejected.
+3. **Fallback:** if the request fails, times out or returns the wrong shape, the site logs a `console.warn` and uses the bundled `content.js`. Visitors always see the portfolio.
+4. **Rendering:** `App.jsx` passes `profile`, `projects` and `skills` as props to each section. Components never import content directly, so they work the same whichever source was used.
+5. **Debugging:** the source used is written to `<html data-content-source="api">` (or `"bundled"`). You can check it in the browser dev tools, and tests can read it.
+
+The API and `content.js` use the same camelCase field names (`whatItIs`, `screenshotAlt`...), so neither side needs to convert the data.
+
 ## Configuration
 
 Copy `.env.example` to `.env.local` to override settings.

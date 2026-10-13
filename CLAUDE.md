@@ -27,11 +27,12 @@ For GitHub Pages project sites, build with `VITE_BASE=/<repo-name>/` (see `vite.
 - `src/App.jsx` composes the sections in the order DESIGN.md sets: `Header`, `Hero`, `Projects` (rendering `ProjectCard`s), `Skills`, `About`, `Footer`. The section anchor ids (`#projects`, `#skills`, `#about`, `#contact`) are targets of the nav and hero links, so keep them stable.
 - `ProjectCard` renders a screenshot from `public/` when `screenshot` is set. Otherwise it shows a tinted placeholder panel. The CI badge is an image when `badge` (a URL) is set, a text chip when only `badgeLabel` is set, and omitted when neither is.
 - **Styling:** Bootstrap provides the grid and utilities (2-column project grid at `lg`, stacking to 1 column below). `src/styles.css` defines the design tokens as CSS custom properties on `:root`, overrides Bootstrap's body and link variables, and holds all component classes. Add new colors as tokens there instead of hard-coding hex values.
-- Fonts (Fraunces, DM Sans, IBM Plex Mono) load from Google Fonts in `index.html`.
+- Fonts (Space Grotesk, Inter, JetBrains Mono) load from Google Fonts in `index.html`.
+- Dark theme: the shared `.glass` class gives cards their gradient edge and hover lift. All animation is disabled under `prefers-reduced-motion`.
 
 ## Content rules
 
 - Every `[bracketed]` value in `content.js` is a placeholder for the owner's real content. If something is missing, **ask the user**. Do not invent it.
 - Outcomes must be real, provable results. **Never invent metrics or numbers.**
 - Keep 4–6 projects. Each needs a real screenshot and working Code and README links.
-- Text contrast must be at least 4.5:1. Focus outlines use the link blue on light backgrounds and amber on navy.
+- Text contrast must be at least 4.5:1. Focus outlines are cyan (`--focus`).

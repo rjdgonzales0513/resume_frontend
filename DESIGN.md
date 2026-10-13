@@ -5,11 +5,11 @@ Rebuild it with Bootstrap 5 and keep it a static site (GitHub Pages).
 
 ## Page order
 1. Header: name + nav (Projects, Skills, About, Contact)
-2. Hero (dark navy): role label, one-line headline, short intro, buttons: See my projects / GitHub / LinkedIn
+2. Hero: role label, one-line headline, short intro, buttons: See my projects / GitHub / LinkedIn
 3. Featured projects: 2-column card grid
 4. Skills: 4 category cards (Automation, Languages, API & data, CI/CD & tools) with badges
-5. About: round avatar + short paragraph
-6. Footer (dark navy): email, GitHub, LinkedIn
+5. About: short paragraph (the avatar is shown in the hero)
+6. Footer: email, GitHub, LinkedIn
 
 ## Project card layout (top to bottom)
 - Proof area: test report / pipeline screenshot with a CI status badge in the corner
@@ -21,10 +21,16 @@ Rebuild it with Bootstrap 5 and keep it a static site (GitHub Pages).
 - Links: Code, Test report / Pipeline runs / Live demo, README
 
 ## Look
-- Fonts: Fraunces (headings), DM Sans (body), IBM Plex Mono (badges)
-- Colors: navy #1c2430, amber accent #f2b872, page bg #f7f5f0, cards #ffffff with #e2ded5 border,
-  link blue #1f4e79, stack badge bg #e8eef4, approach tag bg #efe6d8, outcome bg #e8f3ec / text #1d4a33
-- Cards: 10px radius, 1px border, no heavy shadows
+Modern, futuristic dark theme (replaced the original navy/amber light theme on 2026-10-13).
+- Fonts: Space Grotesk (headings), Inter (body), JetBrains Mono (labels, nav, badges, links)
+- Colors: page bg #070b14, card bg #0c1322, text #e6ebf5, muted text #9ba8bf,
+  accent gradient cyan #22d3ee → blue #60a5fa → violet #a78bfa, link #67e8f9,
+  stack badges blue tint, approach tags violet tint, outcome box green tint (#9ff0cd text, #34d399 edge)
+- Background: faint grid plus soft cyan/violet glows; header is a sticky blurred glass bar
+- Cards: 14px radius, dark glass panels with a thin cyan-to-violet gradient edge, lift and glow on hover
+- Hero: role pill, large headline, buttons, and the avatar in an animated gradient ring (About is text only)
+- Section labels in mono, e.g. "// 01 · Projects"
+- Animations must stop under prefers-reduced-motion
 - Must work at phone width (cards stack to 1 column), text contrast 4.5:1 or better
 
 ## Content rules

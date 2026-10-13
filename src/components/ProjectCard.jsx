@@ -5,13 +5,14 @@ export default function ProjectCard({ project, index }) {
     project
 
   return (
-    <article className="project-card">
+    <article className="project-card glass">
       <div className={`project-proof ${screenshot ? '' : placeholderTints[index % placeholderTints.length]}`}>
         {screenshot ? (
           <img src={`${import.meta.env.BASE_URL}${screenshot}`} alt={screenshotAlt} loading="lazy" />
         ) : (
           <span className="proof-placeholder">{screenshotAlt}</span>
         )}
+        <span className="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
         {badge ? (
           <img className="ci-badge-img" src={badge} alt={badgeLabel || 'CI status'} />
         ) : (
