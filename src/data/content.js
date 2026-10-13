@@ -65,15 +65,19 @@ export const projects = [
   {
     title: 'My Budget App: REST API server',
     whatItIs: 'Spring Boot REST API for a household budgeting app that tracks accounts, budget categories and income/expense transactions, and produces monthly reports as JSON or a PDF statement.',
-    outcome: '13 documented endpoints backed by PostgreSQL with Flyway migrations. GitLab CI builds a Docker image on every push to main and rolls it out to a Kubernetes deployment.',
-    approach: ['API', 'CI/CD'],
-    stack: ['Java 21', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'Flyway', 'PDFBox', 'Docker', 'Kubernetes', 'GitLab CI'],
-    screenshot: null,
-    screenshotAlt: 'API screenshot',
-    badge: null,
-    badgeLabel: null,
+    outcome: '13 documented endpoints covered by 54 JUnit 5 tests (MockMvc controller tests, Mockito service tests, PDF generation) that run in GitHub Actions on every push. GitLab CI builds a Docker image and rolls it out to Kubernetes.',
+    approach: ['API', 'Unit', 'CI/CD'],
+    stack: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Flyway', 'JUnit 5', 'Mockito', 'PDFBox', 'Docker', 'Kubernetes', 'GitHub Actions', 'GitLab CI'],
+    screenshot: 'screenshots/mybudget-surefire-report.png',
+    screenshotAlt: 'Surefire test report: 100% (54 of 54) tests passed across 8 test classes',
+    badge: 'https://github.com/rjdgonzales0513/mybudgetapp_server/actions/workflows/ci.yml/badge.svg',
+    badgeLabel: 'CI workflow status',
     links: [
       { label: 'Code', href: 'https://github.com/rjdgonzales0513/mybudgetapp_server' },
+      {
+        label: 'Test runs',
+        href: 'https://github.com/rjdgonzales0513/mybudgetapp_server/actions/workflows/ci.yml',
+      },
       {
         label: 'API reference',
         href: 'https://github.com/rjdgonzales0513/mybudgetapp_server/blob/main/docs/API.md',
